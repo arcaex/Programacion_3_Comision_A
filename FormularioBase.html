@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex; flex-direction: column;">
+    <div style="margin: auto;
+    border-radius: 10px; padding: 20px; 
+    background-color: rgb(75, 169, 164); color: white; 
+    font-weight: bold;" >
+        <label>Nombre</label><br><br>
+        <input type="text" id="nombre" /><br><br>
+        <label>¿Es Estudiante?</label><br><br>
+        <select id="estudiante">
+            <option value="1" >Si</option>
+            <option value="0" selected>No</option>
+        </select><br><br>
+        <button id="boton" onclick="guardarInfo()">Guardar</button>
+    </div>
+    <div style="margin:auto;">
+        <ul id="lista">
+            <li>
+                Ejemplo
+            </li>
+        </ul>
+    </div>
+
+    <script>
+
+        let listado = []
+        
+        function guardarInfo() {
+            // Traer los valores del formulario
+            const nombre = document.getElementById("nombre").value;
+            let esEstudiante = document.getElementById("estudiante").value;
+            
+            // Dependiendo del valor de esEstudiante asigno un booleano
+            esEstudiante == "1" ? esEstudiante = true : esEstudiante = false;
+
+            // Creamos un objeto JSON que use esos valores para sus claves
+            const objetoListado = {
+                "nombre": nombre,
+                "esEstudiante" : esEstudiante
+            };
+            
+            // Inserto el objeto en la Lista o Arreglo
+            listado.push(objetoListado);
+
+            console.log(listado);
+        }
+
+    </script>
+
+</body>
+</html>
