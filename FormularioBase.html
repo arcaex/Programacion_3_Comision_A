@@ -27,13 +27,39 @@
             </li>
         </ul>
     </div>
-    <div id="filtro"> </div>
+    <div id="filtro"></div>
     <script>
 
         let listado = []
 
         function filtrar(){
+
+            let mayor = {
+                "nombre":"",
+                "esEstudiante":false
+            }
+
             /// Colocar la lógica del ejercicio en clase
+            listado.forEach((element) =>{
+                if (element.nombre.length > mayor.nombre.length){
+                    mayor = element
+                }
+            })
+
+            const filtroDiv = document.getElementById("filtro")
+            filtroDiv.innerHTML = mayor.nombre
+
+            // let mayor = ""
+
+            // /// Colocar la lógica del ejercicio en clase
+            // listado.forEach((element) =>{
+            //     if (element.nombre.length > mayor.length){
+            //         mayor = element.nombre
+            //     }
+            // })
+
+            // const filtroDiv = document.getElementById("filtro")
+            // filtroDiv.innerHTML = mayor
         }
         
         function guardarInfo() {
