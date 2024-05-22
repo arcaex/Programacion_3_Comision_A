@@ -18,6 +18,7 @@
             <option value="0" selected>No</option>
         </select><br><br>
         <button id="boton" onclick="guardarInfo()">Guardar</button>
+        <button id="boton" onclick="filtrar()">Filtrar</button>
     </div>
     <div style="margin:auto;">
         <ul id="lista">
@@ -26,12 +27,13 @@
             </li>
         </ul>
     </div>
-
+    <div id="filtro"> </div>
     <script>
 
         let listado = []
         
         function guardarInfo() {
+
             // Traer los valores del formulario
             const nombre = document.getElementById("nombre").value;
             let esEstudiante = document.getElementById("estudiante").value;
@@ -48,7 +50,20 @@
             // Inserto el objeto en la Lista o Arreglo
             listado.push(objetoListado);
 
+            //Imprimo la lista en consola.
             console.log(listado);
+
+            // Traemos el UL de la lista y lo guardamos
+            const listaVista = document.getElementById('lista')
+            
+            // Creamos un elemento li
+            const elementoLista = document.createElement("li")
+
+            // Le cambio el contenido por el nombre
+            elementoLista.innerHTML = nombre
+
+            // Agrego este LI al UL (A la lista)
+            listaVista.appendChild(elementoLista)
         }
 
     </script>
